@@ -1,0 +1,6 @@
+[submodule "Academic-Python-Projects"]
+	path = Academic-Python-Projects
+	url = https://github.com/Deekshithaa-Y-M/Academic-Python-Projects.git
+[submodule "Python-Library-Basics-Numpy-Pandas-Matplotlib-Seaborn-"]
+	path = Python-Library-Basics-Numpy-Pandas-Matplotlib-Seaborn-
+	url = https://github.com/Deekshithaa-Y-M/Python-Library-Basics-Numpy-Pandas-Matplotlib-Seaborn-.git
