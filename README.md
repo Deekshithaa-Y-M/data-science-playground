@@ -1,4 +1,3 @@
-# data-science-playground
 # 📊 Data Science Playground
 
 Welcome to my evolving journey through the world of Data Science! This repository serves as a central hub for my academic projects, self-learning modules, and experimental scripts.
