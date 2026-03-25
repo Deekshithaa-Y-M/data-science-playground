@@ -37,4 +37,3 @@ To run any of these projects locally:
 
 ---
 
-**📫 Connect with me:** [Your LinkedIn Link] | [Your Portfolio/Email]
