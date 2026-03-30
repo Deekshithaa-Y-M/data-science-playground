@@ -1,0 +1,4 @@
+Name,Age,Department,etl_processed_at
+Alice,29.0,Data,2026-03-30T17:55:14.395924+00:00
+Bob,35.0,Engineering,2026-03-30T17:55:14.395924+00:00
+Unknown,41.0,Sales,2026-03-30T17:55:14.395924+00:00

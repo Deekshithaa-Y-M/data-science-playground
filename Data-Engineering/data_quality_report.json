@@ -1,0 +1,23 @@
+{
+  "raw_row_count": 4,
+  "clean_row_count": 3,
+  "columns": [
+    "Name",
+    "Age",
+    "Department",
+    "etl_processed_at"
+  ],
+  "null_counts": {
+    "Name": 0,
+    "Age": 0,
+    "Department": 0,
+    "etl_processed_at": 0
+  },
+  "duplicate_rows_after_cleaning": 0,
+  "age_summary": {
+    "min": 29.0,
+    "max": 41.0,
+    "mean": 35.0,
+    "median": 35.0
+  }
+}
