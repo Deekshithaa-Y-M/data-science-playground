@@ -12,7 +12,7 @@ Welcome to my evolving journey through the world of Data Science! This repositor
 | :--- | :--- | :--- |
 | **[Academic Python](./Academic-Python-Projects)** | Core logic and college-level algorithms. | Python |
 | **[Library Basics](./Python-Library-Basics-Numpy-Pandas-Matplotlib-Seaborn-)** | Deep dives into data manipulation & viz. | NumPy, Pandas, Seaborn |
-| **Next Step...** | *Loading Machine Learning basics soon!* | Scikit-Learn |
+| **Data Engineering** | *Data Engineering Principles* | Python, SQL |
 
 ---
 
