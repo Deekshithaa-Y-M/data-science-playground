@@ -41,3 +41,4 @@ plt.tight_layout()
 plt.savefig("tips data visualization.png") #this command should be added before plt show
 
 plt.show()
+#end of project and 26 days of learning
