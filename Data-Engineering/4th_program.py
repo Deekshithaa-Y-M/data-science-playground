@@ -12,7 +12,7 @@ from pathlib import Path
 # -----------------------------
 # CONFIGURATION
 # -----------------------------
-INPUT_FILE = Path("data.csv")              # Replace with your CSV file path
+INPUT_FILE = Path("data.csv")              
 OUTPUT_FILE = Path("statistics_output.csv")
 
 # -----------------------------
