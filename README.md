@@ -36,7 +36,7 @@ The **Library-Basics** folder focuses on the "Big Four" of the Python ecosystem.
 To run any of these projects locally:
 1. Clone the repo: `git clone https://github.com/Deekshithaa-Y-M/data-science-playground.git`
 2. Navigate to a subfolder.
-3. Install requirements (if applicable): `pip install -r requirements.txt`
+3. Install requirements: `pip install -r requirements.txt`
 
 ---
 
