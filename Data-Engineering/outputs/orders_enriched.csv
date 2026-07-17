@@ -1,0 +1,6 @@
+order_id,product_id,qty,name,price,total_price
+1,101,2.0,Pen,10,20.0
+2,102,1.0,Notebook,50,50.0
+3,103,3.0,Bag,500,1500.0
+4,101,1.0,Pen,10,10.0
+5,104,1.0,Marker,30,30.0
