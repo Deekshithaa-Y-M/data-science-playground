@@ -1,63 +1,121 @@
-"""
-ETL Weather Pipeline
---------------------
-Extracts weather details (temperature, humidity, wind speed) for a given city
-using the OpenWeather API, transforms them into a structured format,
-and loads the results into a CSV file.
+"""Weather ETL pipeline.
+
+This script demonstrates a simple extract-transform-load flow:
+1. Extract weather data from OpenWeather.
+2. Transform the JSON response into a tidy table.
+3. Load the table into a CSV file.
+
+The script is written to be easy to read, easy to run from GitHub, and easy to
+explain in an interview.
 """
 
-import requests
-import pandas as pd
+from __future__ import annotations
+
+import argparse
+import os
 from pathlib import Path
 
-# -----------------------------
-# CONFIGURATION
-# -----------------------------
-API_KEY = "YOUR_API_KEY"   # Replace with your valid OpenWeather API key
-CITY = "Chennai"
-OUTPUT_FILE = Path("weather_output.csv")
+import pandas as pd
+import requests
 
-# -----------------------------
-# ETL PIPELINE
-# -----------------------------
+API_URL = "https://api.openweathermap.org/data/2.5/weather"
+DEFAULT_CITY = "Chennai"
+DEFAULT_OUTPUT_FILE = Path("weather_output.csv")
+DEFAULT_TIMEOUT_SECONDS = 10
+
+
 def extract_weather(city: str, api_key: str) -> dict:
-    """Extract weather data from OpenWeather API for a given city."""
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
-    resp = requests.get(url)
-    if resp.status_code == 200:
-        return resp.json()
-    else:
-        raise Exception(f"API error: {resp.json().get('message', 'Unknown error')}")
+    """Fetch raw weather data for one city from the OpenWeather API."""
+
+    params = {
+        "q": city,
+        "appid": api_key,
+        "units": "metric",
+    }
+
+    response = requests.get(API_URL, params=params, timeout=DEFAULT_TIMEOUT_SECONDS)
+
+    try:
+        response.raise_for_status()
+    except requests.HTTPError as exc:
+        message = response.json().get("message", response.text)
+        raise RuntimeError(f"OpenWeather API error: {message}") from exc
+
+    return response.json()
+
 
 def transform_weather(data: dict) -> pd.DataFrame:
-    """Transform JSON response into a pandas DataFrame."""
+    """Convert the API response into a one-row pandas DataFrame."""
+
     row = {
         "city": data["name"],
-        "temp_c": data["main"]["temp"],
-        "humidity": data["main"]["humidity"],
-        "wind_speed": data["wind"]["speed"]
+        "temperature_c": data["main"]["temp"],
+        "humidity_percent": data["main"]["humidity"],
+        "wind_speed_mps": data["wind"]["speed"],
     }
+
     return pd.DataFrame([row])
 
+
 def load_weather(df: pd.DataFrame, output_file: Path) -> None:
-    """Load DataFrame into a CSV file."""
+    """Save the transformed data to a CSV file."""
+
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_file, index=False)
 
-# -----------------------------
-# MAIN EXECUTION
-# -----------------------------
+
+def get_api_key() -> str:
+    """Read the OpenWeather API key from the environment."""
+
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    if not api_key:
+        raise ValueError(
+            "Missing OPENWEATHER_API_KEY environment variable. "
+            "Set it before running the script."
+        )
+    return api_key
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+
+    parser = argparse.ArgumentParser(description="Download and save weather data.")
+    parser.add_argument("--city", default=DEFAULT_CITY, help="City to fetch weather for")
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_OUTPUT_FILE,
+        help="CSV file to create or overwrite",
+    )
+    return parser.parse_args()
+
+
+def print_weather_report(df: pd.DataFrame) -> None:
+    """Print a small human-readable summary."""
+
+    record = df.iloc[0]
+    print("Weather data extracted successfully.\n")
+    print(f"City               : {record['city']}")
+    print(f"Temperature (°C)    : {record['temperature_c']}")
+    print(f"Humidity (%)        : {record['humidity_percent']}")
+    print(f"Wind speed (m/s)    : {record['wind_speed_mps']}")
+
+
+def main() -> None:
+    """Run the ETL pipeline end to end."""
+
+    args = parse_args()
+    api_key = get_api_key()
+
+    weather_data = extract_weather(args.city, api_key)
+    weather_frame = transform_weather(weather_data)
+    load_weather(weather_frame, args.output)
+    print_weather_report(weather_frame)
+    print(f"CSV saved to: {args.output.resolve()}")
+
+
 if __name__ == "__main__":
     try:
-        data = extract_weather(CITY, API_KEY)
-        df = transform_weather(data)
-        load_weather(df, OUTPUT_FILE)
-
-        # Print results neatly
-        print("✅ Weather data extracted successfully!\n")
-        print(f"City       : {df.loc[0, 'city']}")
-        print(f"Temp (°C)  : {df.loc[0, 'temp_c']}")
-        print(f"Humidity   : {df.loc[0, 'humidity']}")
-        print(f"Wind Speed : {df.loc[0, 'wind_speed']}")
-
-    except Exception as e:
-        print("❌ Error:", e)
+        main()
+    except Exception as exc:
+        print(f"Error: {exc}")
