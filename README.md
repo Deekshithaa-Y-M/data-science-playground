@@ -1,4 +1,4 @@
-# 📊 Data Science Playground
+#  Data Science Playground
 
 Welcome to my evolving journey through the world of Data Science! This repository serves as a central hub for my academic projects, self-learning modules, and experimental scripts.
 
@@ -6,7 +6,7 @@ Welcome to my evolving journey through the world of Data Science! This repositor
 
 ---
 
-## 🚀 Navigation
+##  Navigation
 
 | Category | Description | Tech Stack |
 | :--- | :--- | :--- |
@@ -19,12 +19,12 @@ Welcome to my evolving journey through the world of Data Science! This repositor
 
 ---
 
-## 🧠 What's Inside?
+##  What's Inside?
 
-### 🏫 Academic Foundation
+###  Academic Foundation
 In the **Academic-Python-Projects** folder, I documented my transition from basic syntax to structured problem-solving. These represent my first steps into the logic that powers data science.
 
-### 📈 Data Manipulation
+###  Data Manipulation
 The **Library-Basics** folder focuses on the "Big Four" of the Python ecosystem. I used this space to master:
 * **Cleaning** messy data with Pandas.
 * **Vectorizing** math with NumPy.
