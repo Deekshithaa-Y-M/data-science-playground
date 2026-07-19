@@ -12,8 +12,10 @@ from pathlib import Path
 # -----------------------------
 # CONFIGURATION
 # -----------------------------
-INPUT_FILE = Path("data1.csv")              
-OUTPUT_FILE = Path("statistics_output.csv")
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_FILE = BASE_DIR / "data" / "data1.csv"
+OUTPUT_DIR = BASE_DIR / "outputs"
+OUTPUT_FILE = OUTPUT_DIR / "statistics_output.csv"
 
 # -----------------------------
 # ETL PIPELINE
@@ -37,6 +39,7 @@ def transform_statistics(df: pd.DataFrame) -> pd.DataFrame:
 
 def load_statistics(summary_df: pd.DataFrame, output_file: Path) -> None:
     """Save statistics to CSV."""
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     summary_df.to_csv(output_file, index=True)
 
 # -----------------------------
