@@ -1,1 +1,1 @@
-This folder contains all the progras that were taught to me during my Data Structures and Algorithms Paper at college.
+This folder contains all the programs that were taught to me during my Data Structures and Algorithms Practical at college.
