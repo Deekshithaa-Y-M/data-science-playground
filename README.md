@@ -12,6 +12,8 @@ Welcome to my evolving journey through the world of Data Science! This repositor
 | :--- | :--- | :--- |
 | **[Academic Python](./Academic-Python-Projects)** | *Core logic and college-level algorithms.* | Python |
 | **[Library Basics](./Python-Library-Basics-Numpy-Pandas-Matplotlib-Seaborn-)** | *Deep dives into data manipulation & viz.* | NumPy, Pandas, Seaborn |
+| **[Data Structures and Algorithms Lab](./DSA-Lab/)** | *DSA Programs covered in college* | Python, Java |
+| **[OOPS Lab](./Object-Oriented-Programming-Lab/)** | *Object Oriented Programming concepts from college* | Java |
 | **[Data Engineering](./Data-Engineering/)** | *Data Engineering Principles* | Python, SQL |
 | **[Database Systems](./Database-Systems/)** | *Database Management Academic Programs* | SQL |
 | **[Machine Learning Lab](./Machine-Learning-Lab/)** | *Lab Programs from College - ML* | Scikit-Learn |
