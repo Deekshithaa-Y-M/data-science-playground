@@ -1,0 +1,11 @@
+﻿OrderID,Region,Product,Age,Price,Quantity,Discount(%),Sales
+1001,East,Laptop,52,218.45,2,20,349.52
+1002,West,Laptop,53,244.10,9,5,2087.05
+1003,North,Tablet,35,156.59,2,10,281.86
+1004,East,Mobile,56,280.85,5,20,1123.40
+1005,East,Smartwatch,49,305.75,9,0,2751.75
+1006,South,Laptop,41,320.50,8,15,2398.25
+1007,North,Mobile,47,190.25,6,12,967.80
+1008,West,Smartwatch,38,410.20,4,5,1640.80
+1009,South,Tablet,62,175.60,3,25,469.40
+1010,East,Laptop,44,260.00,7,10,1820.00
