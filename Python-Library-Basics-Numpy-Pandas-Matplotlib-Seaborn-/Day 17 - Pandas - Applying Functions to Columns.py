@@ -1,3 +1,5 @@
+import pandas as pd
+
 #day 17
 print("Day 17 - Pandas - Applying Functions to Columns")
 df = pd.DataFrame({

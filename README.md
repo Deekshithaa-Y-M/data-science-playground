@@ -37,8 +37,12 @@ The **Library-Basics** folder focuses on the "Big Four" of the Python ecosystem.
 ## 🛠️ Setup & Usage
 To run any of these projects locally:
 1. Clone the repo: `git clone https://github.com/Deekshithaa-Y-M/data-science-playground.git`
-2. Navigate to a subfolder.
-3. Install requirements: `pip install -r requirements.txt`
+2. Navigate to the repository folder.
+3. Create and activate a virtual environment:
+	- Windows PowerShell: `python -m venv .venv` then `.venv\Scripts\Activate.ps1`
+	- macOS/Linux: `python -m venv .venv` then `source .venv/bin/activate`
+4. Install requirements: `python -m pip install -r requirements.txt`
+5. Open a script or notebook from the relevant lab folder.
 
 ---
 

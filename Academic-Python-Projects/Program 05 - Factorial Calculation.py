@@ -9,5 +9,7 @@ def factorial(n):
     
 # Test the function with different values
 num = int(input("Enter a number: "))
+if num < 0:
+    raise ValueError("Factorial is defined only for non-negative integers.")
 result = factorial(num)
 print(f"Factorial of {num} is {result}")

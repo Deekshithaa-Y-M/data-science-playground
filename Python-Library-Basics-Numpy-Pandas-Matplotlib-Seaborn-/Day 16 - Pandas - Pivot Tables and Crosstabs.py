@@ -1,3 +1,5 @@
+import pandas as pd
+
 #Day 16
 print("Day 16 - Pivot Tables and Crosstabs(Excel - style Pandas)")
 print("\n")

@@ -1,3 +1,5 @@
+import pandas as pd
+
 print("Day 12 - Pandas - Data Filtering and Analysis")
 data = {
     'Name': ['Ajay', 'Bala', 'Charan', 'Dheena'],

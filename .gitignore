@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+Data-Engineering/drop_output.csv
+Data-Engineering/fill_output.csv
+Data-Engineering/interpolated_output.csv
+Data-Engineering/weather_output.csv

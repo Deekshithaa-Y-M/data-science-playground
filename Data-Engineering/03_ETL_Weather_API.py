@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -119,3 +120,4 @@ if __name__ == "__main__":
         main()
     except Exception as exc:
         print(f"Error: {exc}")
+        sys.exit(1)

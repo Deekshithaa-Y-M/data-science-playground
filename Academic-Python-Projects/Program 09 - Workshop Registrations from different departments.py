@@ -18,7 +18,7 @@ print("\nCS Registered Students:", cs_students)
 print("ECE Registered Students:", ece_students)
 
 # (c) Common students (intersection)
-common_students = cs_students &amp; ece_students
+common_students = cs_students & ece_students
 print("\nStudents registered in both CS and ECE:", common_students)
 
 # (d) Unique students in each department (symmetric difference)

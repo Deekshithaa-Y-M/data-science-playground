@@ -22,6 +22,16 @@ def main(data_dir: Path, outputs_dir: Path):
 
 	orders = pd.read_csv(orders_path)
 	products = pd.read_csv(products_path)
+	missing_order_columns = [column for column in ("product_id",) if column not in orders]
+	missing_product_columns = [
+		column for column in ("product_id", "name", "price") if column not in products
+	]
+	if missing_order_columns or missing_product_columns:
+		raise ValueError(
+			"Invalid input schema. "
+			f"Missing order columns: {missing_order_columns}; "
+			f"missing product columns: {missing_product_columns}"
+		)
 
 	print("Orders rows:", len(orders))
 	print("Products rows:", len(products))
@@ -30,7 +40,9 @@ def main(data_dir: Path, outputs_dir: Path):
 	df = orders.merge(products, on="product_id", how="left")
 
 	# Ensure numeric types for qty and price
-	df["qty"] = pd.to_numeric(df.get("qty", 1), errors="coerce").fillna(1)
+	if "qty" not in df:
+		df["qty"] = 1
+	df["qty"] = pd.to_numeric(df["qty"], errors="coerce").fillna(1)
 	df["price"] = pd.to_numeric(df.get("price"), errors="coerce")
 
 	# Remove rows with unknown products (missing name or price)

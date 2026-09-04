@@ -2,6 +2,7 @@
 from sklearn import datasets
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 import pandas as pd
+from pathlib import Path
 
 # Load the Iris dataset
 iris = datasets.load_iris()
@@ -21,6 +22,7 @@ X_std = pd.DataFrame(standard_scaler.fit_transform(X), columns=X.columns)
 print("Min-Max Scaled:\n", X_min.head())
 print("\nStandard Scaled:\n", X_std.head())
 
-# Save scaled datasets to CSV files
-X_min.to_csv("iris_minmax.csv", index=False)
-X_std.to_csv("iris_standard.csv", index=False)
+# Save scaled datasets beside this script
+output_dir = Path(__file__).resolve().parent
+X_min.to_csv(output_dir / "iris_minmax.csv", index=False)
+X_std.to_csv(output_dir / "iris_standard.csv", index=False)

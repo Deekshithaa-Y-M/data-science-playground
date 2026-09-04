@@ -1,7 +1,10 @@
 #Program 2 to read a four-digit number and calculate the sum of its digits.
 
 # Take a four-digit number as input
-num = int(input("Enter a four-digit number: "))
+num_text = input("Enter a four-digit number: ").strip()
+if len(num_text) != 4 or not num_text.isdigit():
+    raise ValueError("Please enter exactly four digits.")
+num = int(num_text)
 
 # Initialize sum
 digit_sum = 0
