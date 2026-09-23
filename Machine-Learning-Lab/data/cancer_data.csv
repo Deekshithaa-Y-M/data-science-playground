@@ -1,0 +1,11 @@
+TumorSize,CellShapeIrregularity,Diagnosis
+1,1,0
+2,1,0
+2,2,0
+1,2,0
+3,1,0
+8,7,1
+9,8,1
+7,9,1
+8,8,1
+9,7,1
